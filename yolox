@@ -1,0 +1,72 @@
+Core – 프로그램 실행시키는 부분
+1.	Init.py
+2.	Lanch.py
+3.	Trainer.py – 학습시키는 부분
+
+Data – 데이터를 불러오고 형식에 맞추는 작업
+1.	Init.py
+2.	Data_augument.py – 데이터 증강, 데이터를 형식에 맞게 변형시킴
+3.	Data_prefecher.py – 작업이 더 빨리 될 수 있도록 도와주는 코드 (프리페처)
+4.	Dataloading.py – 데이터를 불러들이는 작업
+5.	Samplers.py – 배치를 설정하는 역할(yolobatchsampler)
+6.	Datasets
+A.	Init.py
+B.	Coco.py – coco 데이터셋에 있는 이미지를 불러오고 작업하는 역할
+C.	Coco_classes.py – coco dataset 안에 있는 class들
+D.	Datasets_wrapper.py – 데이터셋을 concat(합치고), 감싸는 역할
+E.	Mosaicdetection.py – 모자이크 검출
+F.	Voc.py –이미지 불러오고 이미지 주석 작업
+G.	Voc_classes.py  - class에 뭐가 있는지만 올라가 있음
+
+Evaluators – coco 값들 정리
+1.	Init.py
+2.	Coco_evaluator.py
+3.	Voc_eval.py
+4.	Voc_evaluator.py
+
+Exp - experiment
+1.	Init.py
+2.	Base_exp.py – model 부분을 가져옴
+3.	Build.py – 파일 경로 설정, 형식 설정하는 부분 ex) yolo-s -> yolo_s
+4.	Yolox_base.py – main 함수에 해당하는 부분 – class 개수, 데이터 학습할 때 필요한 변수들 여기서 변경, 모델을 가져와서 최적화 시키는 작업도 진행
+5.	Default
+A.	Init.py
+
+Layers
+1.	Init.py
+2.	Fast_coco_eval_api.py – 이전 coco api 보다 더 빨라진 코드 (api: 컴퓨터나 컴퓨터 프로그램 사이의 연결)
+3.	Jit_ops.py – just-in-time operation 실행
+4.	Cocoeval –> 학습데이터를 돌리고 점수화
+A.	Cocoeval.cpp – 이미지 감지한 것을 점수화 시키는 작업 iou 작업 진행 
+B.	Cocoeval.h
+
+Models
+1.	Init.py – models 안에 있는 나머지 .py들을 합쳐놓음
+2.	Build.py – yolo-s,m,l,x등 설정 맞추는 작업
+3.	Darknet.py – darknet과 cspdarknet 구조 (backbone)
+4.	Losses.py  - iou loss 함수
+5.	Network_blocks.py – 활성화 함수: siliu, bottle neck, spp bottle neck, csp layer
+6.	Yolo_fpn.py – fpn 구조
+7.	Yolo_head.py - head부분 , 활성화함수, iou loss , bbox 위치
+8.	Yolo_pafpn.py – pafpn 구조
+9.	Yolox.py – yolo Models 에서 main 함수(pafpn, yolohead부분 실행시킴)
+
+Tools
+1.	Init.py
+
+Utils – 도구 부분이라 중요 X
+1.	Init.py
+2.	Allreduce_norm.py
+3.	Boxes.py
+4.	Checkpoint.py
+5.	Compat.py
+6.	Demo_utils.py
+7.	Dist.py
+8.	Ema.py
+9.	Logger.py
+10.	Lr_scheduler.py
+11.	Metric.py
+12.	Model_utils.py
+13.	Setup_env.py
+14.	Visualize.py
+
